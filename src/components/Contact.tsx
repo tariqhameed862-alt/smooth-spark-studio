@@ -2,86 +2,153 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const Contact = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const contactInfo = [
     {
       icon: Mail,
       title: "Email",
       content: "hello@techflow.com",
+      gradient: "from-primary/20 to-secondary/20",
     },
     {
       icon: Phone,
       title: "Phone",
       content: "+1 (555) 123-4567",
+      gradient: "from-secondary/20 to-accent/20",
     },
     {
       icon: MapPin,
       title: "Office",
       content: "San Francisco, CA",
+      gradient: "from-accent/20 to-primary/20",
     },
   ];
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-24 relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 mesh-gradient opacity-20" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-full blur-[150px]" />
+
+      <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16 space-y-4"
+          >
             <h2 className="text-4xl md:text-5xl font-bold">
               Let's <span className="gradient-text">Connect</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Ready to start your digital transformation? Get in touch with our team today
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="grid lg:grid-cols-3 gap-8 mb-12"
+          >
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
-                <div
+                <motion.div
                   key={index}
-                  className="glass-card p-6 rounded-xl border border-border/50 text-center space-y-3 hover:border-primary/50 transition-all duration-300"
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                  transition={{ delay: 0.4 + index * 0.15, duration: 0.6 }}
+                  whileHover={{ y: -10, scale: 1.05 }}
+                  className="glass-card-hover p-6 rounded-xl border border-border/50 text-center space-y-3 relative overflow-hidden group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                    <Icon className="w-6 h-6 text-primary" />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto relative z-10 shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-500">
+                    <Icon className="w-7 h-7 text-primary-foreground" />
                   </div>
-                  <h3 className="font-semibold">{info.title}</h3>
-                  <p className="text-muted-foreground">{info.content}</p>
-                </div>
+                  <h3 className="font-semibold relative z-10">{info.title}</h3>
+                  <p className="text-muted-foreground relative z-10">{info.content}</p>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
-          <div className="glass-card p-8 md:p-12 rounded-2xl border border-border/50">
-            <form className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="glass-card p-8 md:p-12 rounded-2xl border border-border/50 relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <form className="space-y-6 relative z-10">
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  className="space-y-2"
+                >
                   <label className="text-sm font-medium">Name</label>
-                  <Input placeholder="John Doe" className="bg-background/50" />
-                </div>
-                <div className="space-y-2">
+                  <Input placeholder="John Doe" className="bg-background/50 border-border/50 focus:border-primary transition-colors duration-300" />
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  className="space-y-2"
+                >
                   <label className="text-sm font-medium">Email</label>
-                  <Input type="email" placeholder="john@example.com" className="bg-background/50" />
-                </div>
+                  <Input type="email" placeholder="john@example.com" className="bg-background/50 border-border/50 focus:border-primary transition-colors duration-300" />
+                </motion.div>
               </div>
-              <div className="space-y-2">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.9, duration: 0.6 }}
+                className="space-y-2"
+              >
                 <label className="text-sm font-medium">Subject</label>
-                <Input placeholder="How can we help?" className="bg-background/50" />
-              </div>
-              <div className="space-y-2">
+                <Input placeholder="How can we help?" className="bg-background/50 border-border/50 focus:border-primary transition-colors duration-300" />
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 1, duration: 0.6 }}
+                className="space-y-2"
+              >
                 <label className="text-sm font-medium">Message</label>
                 <Textarea
                   placeholder="Tell us about your project..."
                   rows={6}
-                  className="bg-background/50"
+                  className="bg-background/50 border-border/50 focus:border-primary transition-colors duration-300"
                 />
-              </div>
-              <Button variant="hero" size="lg" className="w-full md:w-auto">
-                Send Message
-              </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 1.1, duration: 0.6 }}
+              >
+                <Button variant="hero" size="lg" className="w-full md:w-auto group">
+                  Send Message
+                  <motion.span 
+                    className="ml-2 inline-block"
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                  >
+                    →
+                  </motion.span>
+                </Button>
+              </motion.div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
