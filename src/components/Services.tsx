@@ -3,6 +3,7 @@ import { Cloud, Code, Database, Lock, Smartphone, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import TechIllustration from "./TechIllustration";
 
 const Services = () => {
   const ref = useRef(null);
@@ -77,6 +78,14 @@ const Services = () => {
       <div className="absolute inset-0 mesh-gradient opacity-30" />
       <div className="absolute top-1/4 -right-48 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 -left-48 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]" />
+      
+      {/* Tech Illustrations */}
+      <div className="absolute top-10 right-10 w-64 h-64 opacity-20">
+        <TechIllustration variant="network" />
+      </div>
+      <div className="absolute bottom-10 left-10 w-64 h-64 opacity-20">
+        <TechIllustration variant="circuit" />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div 

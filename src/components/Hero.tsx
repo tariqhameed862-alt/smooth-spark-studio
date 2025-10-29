@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-tech.jpg";
 import { motion } from "framer-motion";
+import TechSvgBackground from "./TechSvgBackground";
 
 const Hero = () => {
   return (
@@ -15,6 +16,9 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </div>
+
+      {/* Tech SVG Background */}
+      <TechSvgBackground />
 
       {/* Animated Gradient Orbs */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-pulse-glow" />

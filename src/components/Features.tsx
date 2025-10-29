@@ -2,6 +2,7 @@ import { Check, Rocket, Shield, TrendingUp, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import TechIllustration from "./TechIllustration";
 
 const Features = () => {
   const ref = useRef(null);
@@ -44,6 +45,14 @@ const Features = () => {
       {/* Animated background elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-secondary/20 to-accent/20 rounded-full blur-[120px] floating" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-[120px]" style={{ animationDelay: "1s" }} />
+      
+      {/* Tech Illustrations */}
+      <div className="absolute top-20 left-1/4 w-72 h-72 opacity-10">
+        <TechIllustration variant="data" />
+      </div>
+      <div className="absolute bottom-20 right-1/4 w-72 h-72 opacity-10">
+        <TechIllustration variant="code" />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
