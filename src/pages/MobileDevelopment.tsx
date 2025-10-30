@@ -1,19 +1,62 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Smartphone, Zap, Users, Shield, CheckCircle2, ArrowRight } from "lucide-react";
+import { Smartphone, Zap, Users, Shield, Cloud, Code, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import TechSvgBackground from "@/components/TechSvgBackground";
 
 const MobileDevelopment = () => {
   const features = [
-    "Native Performance",
-    "Cross-Platform Support",
-    "Offline Functionality",
-    "Push Notifications",
-    "Secure Payment Integration",
-    "Real-time Updates",
+    {
+      icon: Smartphone,
+      title: "Native Performance",
+      description: "Harness the full power of device capabilities including camera, GPS, sensors, and notifications for smooth, responsive experiences."
+    },
+    {
+      icon: Zap,
+      title: "Agile Development",
+      description: "Rapid prototyping with React Native and Flutter, continuous delivery, and iterative development to bring your ideas to market quickly."
+    },
+    {
+      icon: Shield,
+      title: "Secure & Compliant",
+      description: "Built with OAuth 2.0, biometric authentication, encrypted storage, and compliance with GDPR, HIPAA, and app store requirements."
+    },
+    {
+      icon: Users,
+      title: "Exceptional UX/UI",
+      description: "Intuitive interfaces with Material Design (Android) and Human Interface Guidelines (iOS), ensuring native look and feel."
+    },
+    {
+      icon: Cloud,
+      title: "Cloud Integration",
+      description: "Seamless backend integration with Firebase, AWS Amplify, or custom APIs with real-time synchronization and offline capabilities."
+    },
+    {
+      icon: Code,
+      title: "Cross-Platform Excellence",
+      description: "Build once, deploy everywhere with 95%+ code reuse across iOS and Android using React Native or Flutter frameworks."
+    }
+  ];
+
+  const services = [
+    {
+      title: "Custom App Development",
+      description: "End-to-end mobile application development from concept to deployment, tailored to your specific business needs and requirements."
+    },
+    {
+      title: "UI/UX Design",
+      description: "Creating beautiful, intuitive interfaces with user research, wireframing, prototyping, and usability testing for optimal engagement."
+    },
+    {
+      title: "App Modernization",
+      description: "Upgrading legacy applications with modern frameworks, improved performance, new features, and enhanced security measures."
+    },
+    {
+      title: "Maintenance & Support",
+      description: "Ongoing support with bug fixes, performance monitoring, OS updates, feature enhancements, and 24/7 technical assistance."
+    }
   ];
 
   const platforms = [
@@ -85,23 +128,31 @@ const MobileDevelopment = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="glass-card-hover h-full">
-                  <CardContent className="p-6 flex items-center gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-secondary flex-shrink-0" />
-                    <span className="text-lg font-medium">{feature}</span>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="glass-card-hover h-full">
+                    <CardHeader>
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-secondary to-accent flex items-center justify-center mb-4 shadow-lg shadow-secondary/50">
+                        <Icon className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                      <CardTitle>{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>{feature.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -144,6 +195,48 @@ const MobileDevelopment = () => {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 mesh-gradient opacity-20" />
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Our <span className="gradient-text-secondary">Services</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive mobile development solutions for your business
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="glass-card-hover h-full">
+                  <CardHeader>
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>{service.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

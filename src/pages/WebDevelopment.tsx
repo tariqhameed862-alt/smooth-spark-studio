@@ -1,19 +1,66 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Code, Layers, Smartphone, Zap, CheckCircle2, ArrowRight } from "lucide-react";
+import { Code, Layers, Layout, Zap, Shield, Search, Users, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import TechSvgBackground from "@/components/TechSvgBackground";
 
 const WebDevelopment = () => {
   const features = [
-    "Responsive Design",
-    "SEO Optimization",
-    "Fast Performance",
-    "Secure & Scalable",
-    "Cross-browser Compatible",
-    "Modern UI/UX",
+    {
+      icon: Layout,
+      title: "Responsive Design",
+      description: "Beautiful interfaces that work flawlessly across all devices and screen sizes, ensuring consistent user experience."
+    },
+    {
+      icon: Zap,
+      title: "Lightning Fast Performance",
+      description: "Optimized performance with blazing-fast load times, lazy loading, and code splitting for smooth interactions."
+    },
+    {
+      icon: Shield,
+      title: "Secure & Reliable",
+      description: "Built with security best practices, SSL certificates, data encryption, and robust error handling mechanisms."
+    },
+    {
+      icon: Search,
+      title: "SEO Optimized",
+      description: "Search engine friendly architecture, structured data, meta tags, and sitemaps to maximize online visibility."
+    },
+    {
+      icon: Users,
+      title: "User-Centric Design",
+      description: "Intuitive user experiences with accessibility standards (WCAG), user research, and A/B testing insights."
+    },
+    {
+      icon: Code,
+      title: "Clean & Scalable Code",
+      description: "Maintainable, well-documented code following SOLID principles and design patterns for long-term success."
+    }
+  ];
+
+  const process = [
+    {
+      step: "01",
+      title: "Discovery & Planning",
+      description: "Understanding your business goals, target audience, and technical requirements through detailed consultation."
+    },
+    {
+      step: "02",
+      title: "Design & Prototyping",
+      description: "Creating wireframes, mockups, and interactive prototypes to visualize the final product before development."
+    },
+    {
+      step: "03",
+      title: "Development & Testing",
+      description: "Building your application with agile methodology, continuous integration, and comprehensive quality assurance."
+    },
+    {
+      step: "04",
+      title: "Launch & Support",
+      description: "Deploying to production with monitoring, documentation, training, and ongoing maintenance support."
+    }
   ];
 
   const technologies = [
@@ -85,23 +132,31 @@ const WebDevelopment = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="glass-card-hover h-full">
-                  <CardContent className="p-6 flex items-center gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                    <span className="text-lg font-medium">{feature}</span>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="glass-card-hover h-full">
+                    <CardHeader>
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 shadow-lg shadow-primary/50">
+                        <Icon className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                      <CardTitle>{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>{feature.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -143,6 +198,46 @@ const WebDevelopment = () => {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Development Process */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Our <span className="gradient-text">Process</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A proven methodology that delivers exceptional results
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {process.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="glass-card-hover h-full">
+                  <CardContent className="pt-6">
+                    <div className="text-5xl font-bold gradient-text mb-4">{item.step}</div>
+                    <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                    <p className="text-muted-foreground text-sm">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
