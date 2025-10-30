@@ -1,8 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Cloud, Code, Database, Lock, Smartphone, Zap } from "lucide-react";
+import { Cloud, Code, Database, Lock, Smartphone, Zap, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import TechIllustration from "./TechIllustration";
 
 const Services = () => {
@@ -18,9 +20,10 @@ const Services = () => {
     },
     {
       icon: Code,
-      title: "Custom Development",
-      description: "Tailored software solutions built with cutting-edge technologies to meet your unique needs.",
+      title: "Web Development",
+      description: "Tailored web solutions built with cutting-edge technologies to meet your unique needs.",
       gradient: "from-secondary/20 to-accent/20",
+      link: "/services/web-development",
     },
     {
       icon: Database,
@@ -39,6 +42,7 @@ const Services = () => {
       title: "Mobile Apps",
       description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
       gradient: "from-secondary/20 to-primary/20",
+      link: "/services/mobile-development",
     },
     {
       icon: Zap,
@@ -122,9 +126,17 @@ const Services = () => {
                     <CardTitle className="text-xl">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="relative z-10">
-                    <CardDescription className="text-muted-foreground">
+                    <CardDescription className="text-muted-foreground mb-4">
                       {service.description}
                     </CardDescription>
+                    {service.link && (
+                      <Link to={service.link}>
+                        <Button variant="ghost" size="sm" className="group/btn p-0 h-auto">
+                          Learn More
+                          <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                        </Button>
+                      </Link>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
