@@ -10,16 +10,16 @@ const TechSvgBackground = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
         >
-          <circle cx="30" cy="30" r="3" fill="hsl(180 85% 55%)" />
-          <circle cx="80" cy="30" r="3" fill="hsl(280 70% 60%)" />
-          <circle cx="130" cy="30" r="3" fill="hsl(320 75% 65%)" />
-          <circle cx="30" cy="80" r="3" fill="hsl(320 75% 65%)" />
-          <circle cx="80" cy="80" r="3" fill="hsl(180 85% 55%)" />
-          <circle cx="130" cy="80" r="3" fill="hsl(280 70% 60%)" />
+          <circle cx="30" cy="30" r="3" fill="hsl(var(--primary))" />
+          <circle cx="80" cy="30" r="3" fill="hsl(var(--secondary))" />
+          <circle cx="130" cy="30" r="3" fill="hsl(var(--accent))" />
+          <circle cx="30" cy="80" r="3" fill="hsl(var(--accent))" />
+          <circle cx="80" cy="80" r="3" fill="hsl(var(--primary))" />
+          <circle cx="130" cy="80" r="3" fill="hsl(var(--secondary))" />
           
           <motion.line
             x1="30" y1="30" x2="80" y2="30"
-            stroke="hsl(180 85% 55%)"
+            stroke="hsl(var(--primary))"
             strokeWidth="1"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
@@ -27,7 +27,7 @@ const TechSvgBackground = () => {
           />
           <motion.line
             x1="80" y1="30" x2="130" y2="30"
-            stroke="hsl(280 70% 60%)"
+            stroke="hsl(var(--secondary))"
             strokeWidth="1"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
@@ -35,7 +35,7 @@ const TechSvgBackground = () => {
           />
           <motion.line
             x1="30" y1="30" x2="30" y2="80"
-            stroke="hsl(320 75% 65%)"
+            stroke="hsl(var(--accent))"
             strokeWidth="1"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
@@ -43,7 +43,7 @@ const TechSvgBackground = () => {
           />
           <motion.line
             x1="80" y1="30" x2="80" y2="80"
-            stroke="hsl(180 85% 55%)"
+            stroke="hsl(var(--primary))"
             strokeWidth="1"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
@@ -61,7 +61,7 @@ const TechSvgBackground = () => {
           <motion.polygon
             points="200,50 300,150 250,280 150,280 100,150"
             fill="none"
-            stroke="hsl(180 85% 55%)"
+            stroke="hsl(var(--primary))"
             strokeWidth="1"
             initial={{ scale: 0.8, opacity: 0.3 }}
             animate={{ scale: 1, opacity: 0.6 }}
@@ -70,7 +70,7 @@ const TechSvgBackground = () => {
           <motion.polygon
             points="200,80 280,160 240,260 160,260 120,160"
             fill="none"
-            stroke="hsl(280 70% 60%)"
+            stroke="hsl(var(--secondary))"
             strokeWidth="1"
             initial={{ scale: 1, opacity: 0.6 }}
             animate={{ scale: 0.8, opacity: 0.3 }}
@@ -83,9 +83,9 @@ const TechSvgBackground = () => {
       <svg className="absolute bottom-20 left-1/4 w-64 h-64" viewBox="0 0 200 200">
         <defs>
           <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(180 85% 55%)" stopOpacity="0" />
-            <stop offset="50%" stopColor="hsl(180 85% 55%)" stopOpacity="1" />
-            <stop offset="100%" stopColor="hsl(280 70% 60%)" stopOpacity="0" />
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+            <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="1" />
+            <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0" />
           </linearGradient>
         </defs>
         
@@ -126,7 +126,7 @@ const TechSvgBackground = () => {
               width="30"
               height="30"
               fill="none"
-              stroke="hsl(180 85% 55%)"
+              stroke="hsl(var(--primary))"
               strokeWidth="0.5"
               initial={{ opacity: 0.2 }}
               animate={{ opacity: 0.5 }}
@@ -143,7 +143,7 @@ const TechSvgBackground = () => {
             cx={60 + i * 60}
             cy={60 + i * 40}
             r="4"
-            fill="hsl(280 70% 60%)"
+            fill="hsl(var(--secondary))"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: [0, 1.5, 1], opacity: [0, 1, 0.6] }}
             transition={{
@@ -170,7 +170,7 @@ const TechSvgBackground = () => {
               } L ${125 + 80 * Math.cos((angle * Math.PI) / 180)} ${
                 125 + 80 * Math.sin((angle * Math.PI) / 180)
               }`}
-              stroke="hsl(320 75% 65%)"
+              stroke="hsl(var(--accent))"
               strokeWidth="1.5"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
@@ -187,7 +187,7 @@ const TechSvgBackground = () => {
             cy="125"
             r="40"
             fill="none"
-            stroke="hsl(180 85% 55%)"
+            stroke="hsl(var(--primary))"
             strokeWidth="2"
             initial={{ scale: 0.8, opacity: 0.3 }}
             animate={{ scale: 1.2, opacity: 0.8 }}
