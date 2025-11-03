@@ -19,6 +19,8 @@ const Navigation = () => {
   const navLinks = [
     { name: "Features", href: "/#features" },
     { name: "Portfolio", href: "/portfolio" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];

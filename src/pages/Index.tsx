@@ -11,6 +11,10 @@ import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import VideoShowcase from "@/components/VideoShowcase";
+import PricingSection from "@/components/PricingSection";
+import TimelineSection from "@/components/TimelineSection";
+import ComparisonSection from "@/components/ComparisonSection";
 
 const Index = () => {
   return (
@@ -21,12 +25,16 @@ const Index = () => {
         <CompanyFeatureRibbon />
         <Services />
         <Features />
+        <VideoShowcase />
         <Stats />
         <ClientLogos />
         <TechStack />
+        <ComparisonSection />
         <Projects />
         <Process />
+        <TimelineSection />
         <Testimonials />
+        <PricingSection />
         <Contact />
       </main>
       <Footer />
