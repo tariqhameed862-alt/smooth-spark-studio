@@ -47,12 +47,67 @@ const Features = () => {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-[120px]" style={{ animationDelay: "1s" }} />
       
       {/* Tech Illustrations */}
-      <div className="absolute top-20 left-1/4 w-72 h-72 opacity-10">
+      <motion.div 
+        className="absolute top-20 left-1/4 w-72 h-72 opacity-10"
+        animate={{ 
+          y: [0, -25, 0],
+          rotate: [0, 10, 0]
+        }}
+        transition={{ 
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
         <TechIllustration variant="data" />
-      </div>
-      <div className="absolute bottom-20 right-1/4 w-72 h-72 opacity-10">
+      </motion.div>
+      
+      <motion.div 
+        className="absolute bottom-20 right-1/4 w-72 h-72 opacity-10"
+        animate={{ 
+          y: [0, 25, 0],
+          rotate: [0, -10, 0]
+        }}
+        transition={{ 
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      >
         <TechIllustration variant="code" />
-      </div>
+      </motion.div>
+
+      <motion.div 
+        className="absolute top-1/2 left-10 w-64 h-64 opacity-8"
+        animate={{ 
+          scale: [1, 1.2, 1],
+          x: [0, 15, 0]
+        }}
+        transition={{ 
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5
+        }}
+      >
+        <TechIllustration variant="network" />
+      </motion.div>
+
+      <motion.div 
+        className="absolute top-1/3 right-10 w-60 h-60 opacity-8"
+        animate={{ 
+          rotate: [0, 360],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ 
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        <TechIllustration variant="circuit" />
+      </motion.div>
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">

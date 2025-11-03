@@ -84,12 +84,66 @@ const Services = () => {
       <div className="absolute bottom-1/4 -left-48 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]" />
       
       {/* Tech Illustrations */}
-      <div className="absolute top-10 right-10 w-64 h-64 opacity-20">
+      <motion.div 
+        className="absolute top-10 right-10 w-64 h-64 opacity-20"
+        animate={{ 
+          rotate: [0, 360],
+        }}
+        transition={{ 
+          duration: 30,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
         <TechIllustration variant="network" />
-      </div>
-      <div className="absolute bottom-10 left-10 w-64 h-64 opacity-20">
+      </motion.div>
+      
+      <motion.div 
+        className="absolute bottom-10 left-10 w-64 h-64 opacity-20"
+        animate={{ 
+          y: [0, -20, 0],
+          scale: [1, 1.15, 1]
+        }}
+        transition={{ 
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
         <TechIllustration variant="circuit" />
-      </div>
+      </motion.div>
+
+      <motion.div 
+        className="absolute top-1/2 right-1/4 w-56 h-56 opacity-15"
+        animate={{ 
+          y: [0, 30, 0],
+          x: [0, -20, 0]
+        }}
+        transition={{ 
+          duration: 16,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      >
+        <TechIllustration variant="data" />
+      </motion.div>
+
+      <motion.div 
+        className="absolute bottom-1/3 left-1/4 w-52 h-52 opacity-12"
+        animate={{ 
+          rotate: [0, -15, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ 
+          duration: 11,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5
+        }}
+      >
+        <TechIllustration variant="code" />
+      </motion.div>
 
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div 

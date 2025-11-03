@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-tech.jpg";
 import { motion } from "framer-motion";
 import TechSvgBackground from "./TechSvgBackground";
+import TechIllustration from "./TechIllustration";
 
 const Hero = () => {
   return (
@@ -19,6 +20,70 @@ const Hero = () => {
 
       {/* Tech SVG Background */}
       <TechSvgBackground />
+
+      {/* Floating Tech Illustrations */}
+      <motion.div 
+        className="absolute top-32 left-10 w-64 h-64 opacity-20"
+        animate={{ 
+          y: [0, -20, 0],
+          rotate: [0, 5, 0]
+        }}
+        transition={{ 
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <TechIllustration variant="circuit" />
+      </motion.div>
+      
+      <motion.div 
+        className="absolute top-1/3 right-10 w-56 h-56 opacity-15"
+        animate={{ 
+          y: [0, 20, 0],
+          rotate: [0, -5, 0]
+        }}
+        transition={{ 
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      >
+        <TechIllustration variant="network" />
+      </motion.div>
+
+      <motion.div 
+        className="absolute bottom-32 left-1/4 w-48 h-48 opacity-10"
+        animate={{ 
+          y: [0, -15, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{ 
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5
+        }}
+      >
+        <TechIllustration variant="data" />
+      </motion.div>
+
+      <motion.div 
+        className="absolute bottom-20 right-1/3 w-52 h-52 opacity-10"
+        animate={{ 
+          y: [0, 15, 0],
+          rotate: [0, 10, 0]
+        }}
+        transition={{ 
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      >
+        <TechIllustration variant="code" />
+      </motion.div>
 
       {/* Animated Gradient Orbs */}
       <motion.div 

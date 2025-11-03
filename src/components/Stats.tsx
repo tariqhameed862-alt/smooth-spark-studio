@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Award, Users, Code, Trophy } from "lucide-react";
+import TechIllustration from "./TechIllustration";
 
 const Stats = () => {
   const ref = useRef(null);
@@ -40,6 +41,52 @@ const Stats = () => {
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
       <div className="absolute inset-0 mesh-gradient opacity-20" />
+      
+      {/* Animated Tech Illustrations */}
+      <motion.div 
+        className="absolute top-10 left-10 w-80 h-80 opacity-10"
+        animate={{ 
+          rotate: [0, 360],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{ 
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        <TechIllustration variant="network" />
+      </motion.div>
+
+      <motion.div 
+        className="absolute bottom-10 right-10 w-72 h-72 opacity-10"
+        animate={{ 
+          y: [0, -30, 0],
+          x: [0, 20, 0]
+        }}
+        transition={{ 
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <TechIllustration variant="data" />
+      </motion.div>
+
+      <motion.div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 opacity-5"
+        animate={{ 
+          scale: [1, 1.1, 1],
+          rotate: [0, -180, 0]
+        }}
+        transition={{ 
+          duration: 25,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        <TechIllustration variant="circuit" />
+      </motion.div>
       
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div
