@@ -8,16 +8,6 @@ import TechIllustration from "./TechIllustration";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroImage}
-          alt="Technology Background"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-      </div>
-
       {/* Tech SVG Background */}
       <TechSvgBackground />
 
@@ -85,45 +75,6 @@ const Hero = () => {
         <TechIllustration variant="code" />
       </motion.div>
 
-      {/* Animated Gradient Orbs */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{ 
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px]" 
-      />
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.3, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{ 
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-        className="absolute bottom-20 right-10 w-96 h-96 bg-accent/20 rounded-full blur-[120px]" 
-      />
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{ 
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2
-        }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[150px]" 
-      />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">

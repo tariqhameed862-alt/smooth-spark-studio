@@ -46,8 +46,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-muted/30">
-      <div className="absolute inset-0 mesh-gradient opacity-20" />
+    <section className="py-24 relative overflow-hidden">
       
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div

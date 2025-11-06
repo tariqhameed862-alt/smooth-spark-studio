@@ -42,9 +42,6 @@ const Features = () => {
 
   return (
     <section id="features" className="py-24 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-secondary/20 to-accent/20 rounded-full blur-[120px] floating" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-[120px]" style={{ animationDelay: "1s" }} />
       
       {/* Tech Illustrations */}
       <motion.div 

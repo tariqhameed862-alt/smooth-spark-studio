@@ -78,10 +78,6 @@ const Services = () => {
 
   return (
     <section id="services" className="py-24 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 mesh-gradient opacity-30" />
-      <div className="absolute top-1/4 -right-48 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-1/4 -left-48 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]" />
       
       {/* Tech Illustrations */}
       <motion.div 

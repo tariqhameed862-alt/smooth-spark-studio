@@ -63,8 +63,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-muted/30">
-      <div className="absolute top-0 left-0 w-full h-full mesh-gradient opacity-20" />
+    <section id="projects" className="py-24 relative overflow-hidden">
       
       <div className="container mx-auto px-4 relative z-10" ref={ref}>
         <motion.div

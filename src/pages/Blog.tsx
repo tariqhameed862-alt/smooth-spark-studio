@@ -93,7 +93,6 @@ const Blog = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <TechSvgBackground />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -247,7 +246,6 @@ const Blog = () => {
 
       {/* Newsletter Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

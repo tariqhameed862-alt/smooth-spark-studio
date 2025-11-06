@@ -71,7 +71,6 @@ const CRMDevelopment = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <TechSvgBackground />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/10" />
         <div className="absolute top-20 right-10 w-96 h-96 opacity-20">
           <TechIllustration variant="network" />
         </div>
@@ -158,7 +157,6 @@ const CRMDevelopment = () => {
 
       {/* Advanced Capabilities */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient opacity-20" />
         <div className="absolute bottom-10 left-10 w-64 h-64 opacity-20">
           <TechIllustration variant="data" />
         </div>
@@ -255,7 +253,6 @@ const CRMDevelopment = () => {
 
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20" />
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

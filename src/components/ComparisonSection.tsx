@@ -21,7 +21,6 @@ const ComparisonSection = () => {
 
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 mesh-gradient opacity-20" />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

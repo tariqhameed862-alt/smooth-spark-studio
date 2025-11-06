@@ -39,8 +39,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
-      <div className="absolute inset-0 mesh-gradient opacity-20" />
+    <section className="py-24 relative overflow-hidden">
       
       {/* Animated Tech Illustrations */}
       <motion.div 
