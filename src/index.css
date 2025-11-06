@@ -114,13 +114,11 @@ All colors MUST be HSL.
 
 @layer utilities {
   .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+    @apply text-primary;
   }
   
   .gradient-text-secondary {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-secondary);
+    @apply text-secondary;
   }
   
   .glass-card {

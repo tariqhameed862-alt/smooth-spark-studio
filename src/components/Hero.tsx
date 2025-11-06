@@ -123,18 +123,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="hero" size="lg" className="group relative overflow-hidden">
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-0 group-hover:opacity-20"
-                  animate={{
-                    x: ["-100%", "100%"],
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 3,
-                    ease: "linear",
-                  }}
-                />
+              <Button variant="hero" size="lg" className="group">
                 Get Started
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
