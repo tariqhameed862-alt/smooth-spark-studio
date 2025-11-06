@@ -69,6 +69,12 @@ const Process = () => {
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isEven = index % 2 === 0;
+              const colors = [
+                { bg: "bg-primary" },
+                { bg: "bg-secondary" },
+                { bg: "bg-accent" },
+                { bg: "bg-tertiary" },
+              ];
               
               return (
                 <motion.div
@@ -84,7 +90,6 @@ const Process = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="glass-card p-6 rounded-2xl relative overflow-hidden group">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                       <div className="relative z-10">
                         <h3 className="text-2xl font-bold mb-3 gradient-text">
                           {step.title}
@@ -101,10 +106,10 @@ const Process = () => {
                     className="relative flex-shrink-0"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                   >
-                    <div className={`w-24 h-24 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-2xl relative z-10`}>
+                    <div className={`w-24 h-24 rounded-2xl ${colors[index % colors.length].bg} flex items-center justify-center shadow-2xl relative z-10`}>
                       <Icon className="w-12 h-12 text-primary-foreground" />
                     </div>
-                    <div className={`absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg`}>
+                    <div className={`absolute -top-2 -right-2 w-8 h-8 rounded-full ${colors[index % colors.length].bg} flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg`}>
                       {index + 1}
                     </div>
                     
@@ -114,7 +119,7 @@ const Process = () => {
                         initial={{ scaleY: 0 }}
                         animate={isInView ? { scaleY: 1 } : {}}
                         transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
-                        className={`absolute top-full left-1/2 -translate-x-1/2 w-1 h-16 bg-gradient-to-b ${step.color} origin-top`}
+                        className={`absolute top-full left-1/2 -translate-x-1/2 w-1 h-16 ${colors[index % colors.length].bg} origin-top`}
                       />
                     )}
                   </motion.div>
@@ -127,6 +132,12 @@ const Process = () => {
           <div className="md:hidden space-y-8">
             {steps.map((step, index) => {
               const Icon = step.icon;
+              const colors = [
+                { bg: "bg-primary" },
+                { bg: "bg-secondary" },
+                { bg: "bg-accent" },
+                { bg: "bg-tertiary" },
+              ];
               
               return (
                 <motion.div
@@ -143,10 +154,10 @@ const Process = () => {
                         whileHover={{ scale: 1.1 }}
                         className="relative"
                       >
-                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg relative z-10`}>
+                        <div className={`w-16 h-16 rounded-xl ${colors[index % colors.length].bg} flex items-center justify-center shadow-lg relative z-10`}>
                           <Icon className="w-8 h-8 text-primary-foreground" />
                         </div>
-                        <div className={`absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-primary-foreground font-bold text-xs shadow`}>
+                        <div className={`absolute -top-1 -right-1 w-6 h-6 rounded-full ${colors[index % colors.length].bg} flex items-center justify-center text-primary-foreground font-bold text-xs shadow`}>
                           {index + 1}
                         </div>
                       </motion.div>
@@ -157,7 +168,7 @@ const Process = () => {
                           initial={{ scaleY: 0 }}
                           animate={isInView ? { scaleY: 1 } : {}}
                           transition={{ duration: 0.3, delay: 0.3 + index * 0.15 }}
-                          className={`w-1 flex-1 min-h-[60px] bg-gradient-to-b ${step.color} origin-top mt-2`}
+                          className={`w-1 flex-1 min-h-[60px] ${colors[index % colors.length].bg} origin-top mt-2`}
                         />
                       )}
                     </div>

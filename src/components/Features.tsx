@@ -132,6 +132,13 @@ const Features = () => {
             >
               {features.map((feature, index) => {
                 const Icon = feature.icon;
+                const colors = [
+                  { bg: "bg-primary/20", text: "text-primary", shadow: "shadow-primary/50" },
+                  { bg: "bg-secondary/20", text: "text-secondary", shadow: "shadow-secondary/50" },
+                  { bg: "bg-accent/20", text: "text-accent", shadow: "shadow-accent/50" },
+                  { bg: "bg-tertiary/20", text: "text-tertiary", shadow: "shadow-tertiary/50" },
+                ];
+                const colorScheme = colors[index % colors.length];
                 return (
                   <motion.div
                     key={index}
@@ -141,9 +148,8 @@ const Features = () => {
                     whileHover={{ scale: 1.05, y: -5 }}
                     className="space-y-3 p-6 rounded-xl glass-card-hover relative overflow-hidden group"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center relative z-10 group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-500">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className={`w-12 h-12 rounded-xl ${colorScheme.bg} flex items-center justify-center relative z-10 group-hover:shadow-lg group-hover:${colorScheme.shadow} transition-all duration-500`}>
+                      <Icon className={`w-6 h-6 ${colorScheme.text}`} />
                     </div>
                     <h3 className="text-lg font-semibold relative z-10">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground relative z-10">{feature.description}</p>
@@ -169,20 +175,24 @@ const Features = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <h3 className="text-2xl font-bold mb-6 relative z-10">Business Benefits</h3>
               <ul className="space-y-4 relative z-10">
-                {benefits.map((benefit, index) => (
-                  <motion.li 
-                    key={index} 
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-                    className="flex items-start gap-3"
-                  >
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 mt-0.5 shadow-lg shadow-primary/30">
-                      <Check className="w-4 h-4 text-primary-foreground" />
-                    </div>
-                    <span className="text-foreground/80">{benefit}</span>
-                  </motion.li>
-                ))}
+                {benefits.map((benefit, index) => {
+                  const colors = ["primary", "secondary", "accent", "tertiary"];
+                  const color = colors[index % colors.length];
+                  return (
+                    <motion.li 
+                      key={index} 
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                      className="flex items-start gap-3"
+                    >
+                      <div className={`w-6 h-6 rounded-full bg-${color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                        <Check className="w-4 h-4 text-primary-foreground" />
+                      </div>
+                      <span className="text-foreground/80">{benefit}</span>
+                    </motion.li>
+                  );
+                })}
               </ul>
             </motion.div>
 

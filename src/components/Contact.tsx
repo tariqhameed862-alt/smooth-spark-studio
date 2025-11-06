@@ -58,6 +58,12 @@ const Contact = () => {
           >
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
+              const colors = [
+                { bg: "bg-primary" },
+                { bg: "bg-secondary" },
+                { bg: "bg-accent" },
+              ];
+              const colorScheme = colors[index % colors.length];
               return (
                 <motion.div
                   key={index}
@@ -67,8 +73,7 @@ const Contact = () => {
                   whileHover={{ y: -10, scale: 1.05 }}
                   className="glass-card-hover p-6 rounded-xl border border-border/50 text-center space-y-3 relative overflow-hidden group"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto relative z-10 shadow-lg shadow-primary/30 group-hover:shadow-primary/50 transition-all duration-500">
+                  <div className={`w-14 h-14 rounded-full ${colorScheme.bg} flex items-center justify-center mx-auto relative z-10 transition-all duration-500`}>
                     <Icon className="w-7 h-7 text-primary-foreground" />
                   </div>
                   <h3 className="font-semibold relative z-10">{info.title}</h3>

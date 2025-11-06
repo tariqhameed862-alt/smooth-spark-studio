@@ -164,13 +164,19 @@ const Services = () => {
         >
           {services.map((service, index) => {
             const Icon = service.icon;
+            const colors = [
+              { bg: "bg-primary", text: "text-primary", border: "border-primary/30" },
+              { bg: "bg-secondary", text: "text-secondary", border: "border-secondary/30" },
+              { bg: "bg-accent", text: "text-accent", border: "border-accent/30" },
+              { bg: "bg-tertiary", text: "text-tertiary", border: "border-tertiary/30" },
+            ];
+            const colorScheme = colors[index % colors.length];
             return (
               <motion.div key={index} variants={item}>
-                <Card className="glass-card-hover group h-full relative overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <Card className={`glass-card-hover group h-full relative overflow-hidden border-2 ${colorScheme.border} hover:${colorScheme.border.replace('/30', '')}`}>
                   
                   <CardHeader className="relative z-10">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-primary/50">
+                    <div className={`w-14 h-14 rounded-xl ${colorScheme.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
                       <Icon className="w-7 h-7 text-primary-foreground" />
                     </div>
                     <CardTitle className="text-xl">{service.title}</CardTitle>

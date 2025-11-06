@@ -105,6 +105,13 @@ const Stats = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
+            const colors = [
+              { bg: "bg-primary", shadow: "shadow-primary/30" },
+              { bg: "bg-secondary", shadow: "shadow-secondary/30" },
+              { bg: "bg-accent", shadow: "shadow-accent/30" },
+              { bg: "bg-tertiary", shadow: "shadow-tertiary/30" },
+            ];
+            const colorScheme = colors[index % colors.length];
             return (
               <motion.div
                 key={index}
@@ -120,10 +127,9 @@ const Stats = () => {
                 className="relative group"
               >
                 <div className="glass-card p-8 rounded-2xl text-center space-y-4 relative overflow-hidden h-full">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:shadow-2xl transition-shadow duration-500`}>
+                    <div className={`w-16 h-16 mx-auto rounded-2xl ${colorScheme.bg} flex items-center justify-center mb-4 shadow-lg group-hover:shadow-2xl ${colorScheme.shadow} transition-shadow duration-500`}>
                       <Icon className="w-8 h-8 text-primary-foreground" />
                     </div>
                     
