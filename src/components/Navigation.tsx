@@ -99,7 +99,7 @@ const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="hero" size="sm">Get Started</Button>
+              <Button variant="gradient" size="sm">Get Started</Button>
             </motion.div>
           </div>
 
@@ -156,7 +156,7 @@ const Navigation = () => {
                     </motion.div>
                   </Link>
                 ))}
-                <Button variant="hero" size="sm" className="w-full">
+                <Button variant="gradient" size="sm" className="w-full">
                   Get Started
                 </Button>
               </div>

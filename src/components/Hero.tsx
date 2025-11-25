@@ -123,18 +123,18 @@ const Hero = () => {
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="hero" size="lg" className="group">
-                Get Started
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+            <Button variant="gradient-accent" size="lg" className="group">
+              Get Started
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="hero-outline" size="lg">
-                Learn More
-              </Button>
+            <Button variant="outline" size="lg">
+              Learn More
+            </Button>
             </motion.div>
           </motion.div>
 

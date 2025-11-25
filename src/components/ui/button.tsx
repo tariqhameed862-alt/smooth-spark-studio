@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md hover:shadow-lg",
+        default: "bg-primary text-primary-foreground hover:bg-primary-light shadow-md hover:shadow-lg",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md hover:shadow-lg",
         outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-md",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-md hover:shadow-lg",
-        accent: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-md hover:shadow-lg",
-        tertiary: "bg-tertiary text-tertiary-foreground hover:bg-tertiary/90 shadow-md hover:shadow-lg",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary-light shadow-md hover:shadow-lg",
+        accent: "bg-accent text-accent-foreground hover:bg-accent-light shadow-md hover:shadow-lg",
+        ghost: "hover:bg-accent/10 hover:text-accent",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-xl",
-        "hero-outline": "border-2 border-secondary bg-transparent text-secondary hover:bg-secondary hover:text-secondary-foreground shadow-md hover:shadow-lg",
+        gradient: "gradient-bg text-white hover:opacity-90 shadow-lg hover:shadow-xl",
+        "gradient-secondary": "gradient-bg-secondary text-white hover:opacity-90 shadow-lg hover:shadow-xl",
+        "gradient-accent": "gradient-bg-accent text-white hover:opacity-90 shadow-lg hover:shadow-xl",
       },
       size: {
         default: "h-10 px-4 py-2",
