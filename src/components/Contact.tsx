@@ -138,7 +138,7 @@ const Contact = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 1.1, duration: 0.6 }}
               >
-                <Button variant="hero" size="lg" className="w-full md:w-auto group">
+                <Button variant="gradient-accent" size="lg" className="w-full md:w-auto group">
                   Send Message
                   <motion.span 
                     className="ml-2 inline-block"
